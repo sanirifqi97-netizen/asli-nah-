@@ -17,7 +17,7 @@ body{
 }
 
 #timer{
-  font-size:40px;
+  font-size:45px;
   margin-top:20px;
 }
 
@@ -55,20 +55,20 @@ Klik di sini 😁
 let target = new Date();
 target.setHours(10,0,0,0);
 
-let x = setInterval(function(){
+let hitung = setInterval(function(){
 
-let now = new Date().getTime();
-let distance = target - now;
+let sekarang = new Date().getTime();
+let sisa = target - sekarang;
 
-let minutes = Math.floor((distance % (1000*60*60))/(1000*60));
-let seconds = Math.floor((distance % (1000*60))/(1000));
+let menit = Math.floor((sisa % (1000*60*60)) / (1000*60));
+let detik = Math.floor((sisa % (1000*60)) / 1000);
 
 document.getElementById("timer").innerHTML =
-minutes + "m " + seconds + "s ";
+menit + " menit " + detik + " detik";
 
-if(distance < 0){
-clearInterval(x);
-document.getElementById("timer").innerHTML = "Waktu sudah habis 😁";
+if(sisa < 0){
+clearInterval(hitung);
+document.getElementById("timer").innerHTML = "Waktu sudah tiba 😁";
 document.getElementById("link").style.display = "block";
 }
 
